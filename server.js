@@ -1,6 +1,9 @@
 const express = require('express');
 const fs = require('fs');
 const hbs = require('hbs'); // used view engine - handlebars
+
+// the port is got from the environment variable set by heroku servers
+const port = process.env.PORT || 3000;
 var app = express();
 
 // partials are smaller pieces of html (like header and footer), which are used in several places
@@ -61,6 +64,8 @@ app.get('/about', (req, res) => {
         pageTitle: 'This is coming from handlebars template'
     });
 });
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    // in package.json we create new kye-value pair in scripts object with key 'start'.
+    // That's because heroku can't start the app with command 'node server.js', it will search for 'start' instead
+    console.log(`Server is up on port ${port}`);
 });
