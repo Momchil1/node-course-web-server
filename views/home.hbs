@@ -1,0 +1,16 @@
+<!--views folder is the default express templates folder-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Page</title>
+</head>
+<body>
+<!--with > sign we inject a partial html template-->
+{{>header}}
+<!--if we need to call a function with arguments, first we type the name of the function and then the arguments separated with space-->
+<p>{{upperCase welcomeMessage}}</p>
+{{>footer}}
+</body>
+</html>

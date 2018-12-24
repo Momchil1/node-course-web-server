@@ -1,0 +1,11 @@
+node_modules/
+tests/
+geocode/
+1-basics-app.js
+2-app.js
+2-notes.js
+3-app-promises.js
+3-async-app.js
+greetings.txt
+notes-data.json
+package-lock.json
