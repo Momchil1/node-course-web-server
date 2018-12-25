@@ -64,6 +64,11 @@ app.get('/about', (req, res) => {
         pageTitle: 'This is coming from handlebars template'
     });
 });
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects'
+    });
+});
 app.listen(port, () => {
     // in package.json we create new kye-value pair in scripts object with key 'start'.
     // That's because heroku can't start the app with command 'node server.js', it will search for 'start' instead
