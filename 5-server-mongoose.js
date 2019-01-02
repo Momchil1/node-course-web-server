@@ -6,13 +6,18 @@ mongoose.connect('mongodb://localhost:27017/TodoApp', {useNewUrlParser: true});
 // the first argument in model function is singular (Todo), but mongoose will create a plural 'todos' collection in database
 var Todo = mongoose.model('Todo', {
    text: {
-       type: String
+       type: String,
+       required: true, // set this field to br required
+       minlength: 1, // set min length of the string
+       trim: true // trims white spaces of string
    },
     completed: {
-       type: Boolean
+        type: Boolean,
+        default: false
     },
     completedAt: {
-       type: Number
+        type: Number,
+        default: null
     }
 });
 
@@ -25,13 +30,20 @@ newTodo.save().then((doc) => {
     console.log('Unable to save todo');
 });
 
-var anotherTodo = new Todo({
-    text: 'Feed the cat',
-    completed: true,
-    completedAt: 123
+var User = mongoose.model('User', {
+   email: {
+       type: String,
+       required: true,
+       trim: true,
+       minlength: 1
+   }
 });
-anotherTodo.save().then((doc) => {
-    console.log('Saved todo', doc);
+
+var user = new User({
+    email: 'momo@abv.bg'
+});
+user.save().then((doc) => {
+    console.log('Saved user', doc);
 }, (err) => {
-    console.log('Unable to save todo');
+    console.log('Unable to save user');
 });

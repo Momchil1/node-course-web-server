@@ -13,7 +13,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
 // with middleware we can add some functionality to express
-// next is called when the work in the middleware is done. if next() is not called the following routes handlers will never be executed
+// next() is called when the work in the middleware is done. if next() is not called the following routes handlers will never be executed
 app.use((req, res, next) => {
     // log each visit of url to a log file
     var now = (new Date).toString();
